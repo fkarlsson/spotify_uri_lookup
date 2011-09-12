@@ -1,10 +1,10 @@
-Spotify URI Lookup Irssi Script
+Spotify URI Lookup Irssi Script - No more hatin' on the evil track links!
 
 Parses Spotify URIs and HTTP links and uses Spotify's Metadata API (http://developer.spotify.com/en/metadata-api/overview/) to output the link info to the channel window.
 
 Also works in query windows, though you might get unexpected results if you are not using the "(msgs)" window for queries. Comments/improvments regarding this are more than welcome!
 
-Put the script in you Irssi scripts folder, run it and it just works. Tested in Perl 5.10.
+Put the script in your Irssi scripts folder, run it and it just works. Tested in Perl 5.10.
 
 Thanks to original script author Toni Viemerö who saved me a lot of time.
 
