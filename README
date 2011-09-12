@@ -1,0 +1,11 @@
+Spotify URI Lookup Irssi Script
+
+Parses Spotify URIs and HTTP links and uses Spotify's Metadata API (http://developer.spotify.com/en/metadata-api/overview/) to output the link info to the channel window.
+
+Also works in query windows, though you might get unexpected results if you are not using the "(msgs)" window for queries. Comments/improvments regarding this are more than welcome!
+
+Put the script in you Irssi scripts folder, run it and it just works. Tested in Perl 5.10.
+
+Thanks to original script author Toni Viemerö who saved me a lot of time.
+
+License blah blah: Do whatever you want with it, give credit to me if you think I deserve it. :)
