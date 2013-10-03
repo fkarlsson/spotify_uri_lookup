@@ -12,6 +12,7 @@
 # 0.30: Uses Spotify's metadata API instead
 # 0.31: Outputs private message link infos to (msgs) window if it exists, otherwise prints it in current window
 # 0.32: Added regex for play.spotify.com links
+# 0.33: Track links with more than one artist only showed one of them because of stupid Perl comparison operators - fixed
 
 use strict; 
 use Irssi; 
@@ -22,7 +23,7 @@ use Irssi::Irc;
 use LWP::UserAgent; 
 use vars qw($VERSION %IRSSI);
 
-$VERSION = '0.32'; 
+$VERSION = '0.33'; 
 %IRSSI = ( 
     authors     => 'Toni Viemerö, Fredrik Karlsson', 
     contact     => 'toni.viemero@iki.fi, fkarlsson@gmail.com', 
@@ -85,10 +86,10 @@ sub spotifyuri_get {
             when ('track') {
                 my $artists = '';
                 foreach my $artist(@{$json_data->{track}->{artists}}) {
-                    if ($artists == '') {
+                    if ($artists eq '') {
                         $artists = $artist->{name};
                     } else {
-                        $artists .= ", " . $artist->{name};;
+                        $artists .= ", " . $artist->{name};
                     }
                 }
 
