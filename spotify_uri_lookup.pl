@@ -11,6 +11,7 @@
 # 0.29: Fixed regexp 
 # 0.30: Uses Spotify's metadata API instead
 # 0.31: Outputs private message link infos to (msgs) window if it exists, otherwise prints it in current window
+# 0.32: Added regex for play.spotify.com links
 
 use strict; 
 use Irssi; 
@@ -21,7 +22,7 @@ use Irssi::Irc;
 use LWP::UserAgent; 
 use vars qw($VERSION %IRSSI);
 
-$VERSION = '0.31'; 
+$VERSION = '0.32'; 
 %IRSSI = ( 
     authors     => 'Toni Viemerö, Fredrik Karlsson', 
     contact     => 'toni.viemero@iki.fi, fkarlsson@gmail.com', 
@@ -58,7 +59,7 @@ sub spotifyuri_private {
 } 
 sub spotifyuri_parse { 
     my ($url) = @_; 
-    if ($url =~ /(http:\/\/open.spotify.com\/|spotify:)(album|artist|track)([:\/])([a-zA-Z0-9]+)\/?/) { 
+    if ($url =~ /(https*:\/\/(?:play|open).spotify.com\/|spotify:)(album|artist|track)([:\/])([a-zA-Z0-9]+)\/?/) { 
         return "http://ws.spotify.com/lookup/1/.json?uri=spotify:$2:$4";
     } 
     return 0; 
